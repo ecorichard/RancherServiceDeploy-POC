@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent kube
     parameters {
         string(name: 'hello')
         string(name: 'hi')
