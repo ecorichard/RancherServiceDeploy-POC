@@ -8,10 +8,6 @@ pipeline {
     stages {
         stage('Stage-1') {
             steps {
-                // Get some code from a GitHub repository
-                git branch: 'master',
-                  credentialsId: '3e58cef0-47e7-4f65-8d45-3c5d1763e2ab',
-                  url: 'https://github.com/ecorichard/RancherServiceDeploy-POC.git'
               echo "Hello World"
             }
             post {
