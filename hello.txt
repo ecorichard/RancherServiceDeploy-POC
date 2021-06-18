@@ -3,6 +3,6 @@ This is a sample file
 Hello World: {{ HELLO_WORLD }}
 Hi World: {{ HI_WORLD }}
 Hola World: {{ HOLA_WORLD }}
-Hello Again: {{ HELLO_WORD }} & {{ HOLA_WORLD }}
+Hello Again: {{ HELLO_WORLD }} & {{ HOLA_WORLD }}
 
 The end
