@@ -25,7 +25,7 @@ pipeline {
                 sh '''
                 echo "Hello, time to do something"
                 uname -a
-                cat hellow.txt | sed "s/{{ HELLO_WORLD }}/${hello}/g" | sed "s/{{ HI_WORLD }}/${hi}/g" | sed "s/{{ HOLA_WORLD }}/${hola}/g"
+                cat hello.txt | sed "s/{{ HELLO_WORLD }}/${hello}/g" | sed "s/{{ HI_WORLD }}/${hi}/g" | sed "s/{{ HOLA_WORLD }}/${hola}/g"
                 '''              
             }
             post {
