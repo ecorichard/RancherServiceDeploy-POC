@@ -1,1 +1,9 @@
 
+This is a sample file in subdir1
+
+Hello World: {{ HELLO_WORLD }}
+Hi World: {{ HI_WORLD }}
+Hola World: {{ HOLA_WORLD }}
+Hello Again: {{ HELLO_WORLD }} & {{ HOLA_WORLD }}
+
+The end
