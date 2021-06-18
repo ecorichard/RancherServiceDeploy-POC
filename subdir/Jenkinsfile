@@ -19,6 +19,7 @@ pipeline {
         stage('Stage-2') {
             steps {
                 sh '''
+                cd subdir
                 echo "Hello, time to do something"
                 uname -a
                 cat hello.txt | sed "s/{{ HELLO_WORLD }}/${hello}/g" | sed "s/{{ HI_WORLD }}/${hi}/g" | sed "s/{{ HOLA_WORLD }}/${hola}/g"
