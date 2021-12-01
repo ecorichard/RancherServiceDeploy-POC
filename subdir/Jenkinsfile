@@ -24,6 +24,14 @@ pipeline {
                 }
             }
         }
+        stage('Stage-2-Input') {
+            try {
+                input 'Proceed to Stage-2 ?'
+            } catch(err) {
+               currentBuild.result = 'SUCCESS'
+               return
+            }
+        }
         stage('Stage-2') {
             steps {
                 sh '''
