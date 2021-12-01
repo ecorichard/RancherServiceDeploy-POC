@@ -34,6 +34,12 @@ pipeline {
             steps {
                 echo "Finished Stage-2-Input"
             }
+            always {
+                sh '''
+                echo "BUILD_VERSION=$buildNumber" > pipelineConfig.txt
+                '''                    
+                stash includes: 'pipelineConfig.txt', name: 'pipelineConfig'
+            }            
         }
         stage('Stage-2') {
             steps {
