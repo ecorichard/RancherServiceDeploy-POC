@@ -10,6 +10,7 @@ pipeline {
         stage('Stage-1') {
             steps {
               echo "Hello World"
+              echo "Build_version = $BUILD_VERSION"                
             }
             post {
                 success {
@@ -34,7 +35,7 @@ pipeline {
                 uname -a
                 cat hello.txt | sed "s/{{ HELLO_WORLD }}/${hello}/g" | sed "s/{{ HI_WORLD }}/${hi}/g" | sed "s/{{ HOLA_WORLD }}/${hola}/g"
                 '''            
-                echo $BUILD_VERSION
+                echo "Build_version = $BUILD_VERSION"
             }
             post {
                 success {
@@ -54,7 +55,7 @@ pipeline {
                 sh '''
                 export $(grep -v '^#' pipelineConfig.txt | xargs)
                 '''
-                echo $BUILD_VERSION                
+                echo "Build_version = $BUILD_VERSION"
                 sh "ls -la"
             }
             post {
