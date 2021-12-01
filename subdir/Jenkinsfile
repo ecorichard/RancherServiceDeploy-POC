@@ -52,7 +52,9 @@ pipeline {
             post {
                 success {
                     echo "Successful do something"
-                    currentBuild.description = "$buildNumber"                    
+                    script {
+                        manager.addShortText("$buildNumber")
+                    }
                 }               
             }
         }
@@ -72,7 +74,9 @@ pipeline {
                     echo "BUILD_VERSION=$buildNumber" > pipelineConfig.txt
                     '''                    
                     stash includes: 'pipelineConfig.txt', name: 'pipelineConfig'
-                    currentBuild.description = "$buildNumber"                    
+                    script {
+                        manager.addShortText("$buildNumber")
+                    }
                 }            
             }
         }        
@@ -88,7 +92,9 @@ pipeline {
             post {
                 success {
                     echo "Successful ended"
-                    currentBuild.description = "$buildNumber"                    
+                    script {
+                        manager.addShortText("$buildNumber")
+                    }                    
                 }
                 always {
                     sh '''
