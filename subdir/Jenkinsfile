@@ -15,6 +15,9 @@ pipeline {
             post {
                 success {
                     echo "Successful saying hello"
+                    script {
+                        manager.addShortText("$buildNumber")
+                    }                    
                 }
             }
         }
