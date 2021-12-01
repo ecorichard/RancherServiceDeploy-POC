@@ -16,12 +16,6 @@ pipeline {
                 success {
                     echo "Successful saying hello"
                 }
-                always {
-                    sh '''
-                    echo "BUILD_VERSION=$buildNumber" > pipelineConfig.txt
-                    '''                    
-                    stash includes: 'pipelineConfig.txt', name: 'pipelineConfig'
-                }
             }
         }
         stage('Stage-2-Input') {
@@ -58,6 +52,25 @@ pipeline {
                 }               
             }
         }
+        stage('Stage-3-Input') {
+            options {
+                timeout(time: 10, unit: 'SECONDS') 
+            }
+            input {
+                message "Proceed to Stage-2?"
+            }            
+            steps {
+                echo "Finished Stage-2-Input"
+            }
+            post {
+                always {
+                    sh '''
+                    echo "BUILD_VERSION=$buildNumber" > pipelineConfig.txt
+                    '''                    
+                    stash includes: 'pipelineConfig.txt', name: 'pipelineConfig'
+                }            
+            }
+        }        
         stage('Stage-3') {
             steps {
                 unstash 'pipelineConfig'   
