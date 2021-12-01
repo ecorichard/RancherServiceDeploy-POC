@@ -26,10 +26,6 @@ pipeline {
         }
         stage('Stage-2') {
             steps {
-                unstash 'pipelineConfig'
-                sh '''
-                export $(grep -v '^#' pipelineConfig.txt | xargs)
-                '''
                 sh '''
                 echo "Hello, time to do something"
                 uname -a
@@ -40,13 +36,7 @@ pipeline {
             post {
                 success {
                     echo "Successful do something"
-                }
-                always {
-                    sh '''
-                    echo "BUILD_VERSION=$buildNumber" > pipelineConfig.txt
-                    '''                    
-                    stash includes: 'pipelineConfig.txt', name: 'pipelineConfig'
-                }                
+                }               
             }
         }
         stage('Stage-3') {
