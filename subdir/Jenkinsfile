@@ -25,11 +25,15 @@ pipeline {
             }
         }
         stage('Stage-2-Input') {
-            try {
-                input 'Proceed to Stage-2 ?'
-            } catch(err) {
-               currentBuild.result = 'SUCCESS'
-               return
+            steps {
+                try {           
+                    timeout(time: 10, unit: 'SECONDS') {
+                       input 'Proceed to Stage-2 ?'
+                    }
+                } catch(err) {
+                   currentBuild.result = 'SUCCESS'
+                   return
+                }
             }
         }
         stage('Stage-2') {
