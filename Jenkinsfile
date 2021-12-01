@@ -4,7 +4,7 @@ pipeline {
         string(name: 'hello')
         string(name: 'hi')
         string(name: 'hola')
-        strubg(name: 'BUILD_VERSION')
+        string(name: 'BUILD_VERSION')
     }  
     stages {
         stage('Stage-1') {
