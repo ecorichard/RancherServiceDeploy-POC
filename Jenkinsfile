@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'kube' }
+    agent { label 'linux' }
     parameters {
         string(name: 'hello')
         string(name: 'hi')
