@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'linux' }
+    agent { label 'devops' }
     parameters {
         string(name: 'hello')
         string(name: 'hi')
